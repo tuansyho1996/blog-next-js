@@ -1,31 +1,31 @@
 import Link from 'next/link'
 import { getAllPosts } from '@/lib/posts'
+import { getBlog } from '@/service/blog'
+import BlogCard from '@/components/blog/blog.card'
+import { Blog } from '@/types'
 
 export const metadata = {
-  title: 'Blog | Tuan Ho',
-  description: 'Danh sách các bài viết chia sẻ kỹ thuật và kinh nghiệm lập trình.',
+  title: 'Latest Tech & Programming Blogs | Tutorials, Tips & Trends',
+  description: 'Explore the latest blogs on technology and programming. Discover coding tutorials, development tips, software tools, and tech trends to stay ahead in the digital world.',
 }
 
 export default async function BlogListPage() {
-  const posts = getAllPosts()
+  const blogs = await getBlog('all')
 
   return (
-    <main className="max-w-3xl mx-auto px-4 py-8">
-      <h1 className="text-3xl font-bold mb-6">📚 Bài viết mới nhất</h1>
-
-      <ul className="space-y-6">
-        {posts.map((post) => (
-          <li key={post.slug} className="border-b pb-4">
-            <Link href={`/blog/${post.slug}`}>
-              <h2 className="text-xl font-semibold text-blue-600 hover:underline">
-                {post.metadata.title}
-              </h2>
-            </Link>
-            <p className="text-sm text-gray-500">{post.metadata.date}</p>
-            <p className="text-gray-700 mt-1">{post.metadata.description}</p>
-          </li>
-        ))}
-      </ul>
+    <main className="max-w-5xl mx-auto px-4 py-8">
+      <h1 className="text-3xl font-bold mb-6">Latest Tech Blogs</h1>
+      {blogs && blogs.length > 0 ? (
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          {blogs.map((blog: Blog) => (
+            <BlogCard key={blog.blog_slug} blog={blog} />
+          ))}
+        </div>
+      ) : (
+        <div className="text-center text-gray-500">
+          <p>Chưa có bài viết nào.</p>
+        </div>
+      )}
     </main>
   )
 }

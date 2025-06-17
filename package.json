@@ -12,6 +12,7 @@
     "classnames": "^2.5.1",
     "contentlayer": "^0.3.4",
     "gray-matter": "^4.0.3",
+    "isomorphic-dompurify": "^2.25.0",
     "next": "15.3.3",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
