@@ -33,7 +33,7 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "src/components/theme.toggle.jsx"
+    "src/components/header/theme.toggle.jsx"
   ],
   "exclude": [
     "node_modules"

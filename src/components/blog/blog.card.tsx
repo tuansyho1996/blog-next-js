@@ -16,13 +16,13 @@ export default function BlogCard({ blog }: { blog: Blog }) {
                     className="w-full h-48 object-cover group-hover:scale-105 transition-transform"
                     loading="lazy"
                 />
-                <div className="p-4">
+                <div className="p-4 bg-[var(--subbackground)]">
                     <h2 className="text-xl font-semibold mb-2">{blog.blog_title}</h2>
                     <p className="text-sm text-gray-500 mb-2">{new Date(blog.createdAt).toLocaleDateString()}</p>
                     <p className="line-clamp-2">{blog.blog_content}</p>
                 </div>
-                <div className="p-4 bg-gray-100 text-center">
-                    <span className="text-xl text-blue-600 ">Read more</span>
+                <div className="p-4 bg-[var(--reversebackground)] text-center">
+                    <span className="text-xl text-white">Read more</span>
                 </div>
             </div>
         </Link>

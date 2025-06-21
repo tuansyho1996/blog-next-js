@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { getAllPosts } from '@/lib/posts'
-import { getBlog } from '@/service/blog'
+import { getBlog } from '@/services/blog'
 import BlogCard from '@/components/blog/blog.card'
 import { Blog } from '@/types'
 
@@ -14,7 +14,8 @@ export default async function BlogListPage() {
 
   return (
     <main className="max-w-5xl mx-auto px-4 py-8">
-      <h1 className="text-3xl font-bold mb-6">Latest Tech Blogs</h1>
+      <h1 className="text-7xl font-bold text-center mb-10">Tech Talk Hub</h1>
+      <h2 className="text-3xl font-bold mb-6">Latest Tech Blogs</h2>
       {blogs && blogs.length > 0 ? (
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
           {blogs.map((blog: Blog) => (

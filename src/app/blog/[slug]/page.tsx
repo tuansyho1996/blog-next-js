@@ -1,7 +1,7 @@
 // app/blog/[slug]/page.tsx
 
 import Image from "next/image";
-import { getBlog } from "@/service/blog";
+import { getBlog } from "@/services/blog";
 import DOMPurify from 'isomorphic-dompurify';
 
 
