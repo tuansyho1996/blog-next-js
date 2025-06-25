@@ -36,7 +36,8 @@ export default async function BlogPostPage({ params }: BlogPageParams) {
             <p className="text-sm text-gray-500 mb-4">
                 {new Date(blog.createdAt).toLocaleDateString()}
             </p>
-            <article dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(blog.blog_content) }} />
+            <div dangerouslySetInnerHTML={{ __html: blog.blog_content }} />
+
         </div>
     );
 }

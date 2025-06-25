@@ -1,6 +1,8 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import DarkModeIcon from '@mui/icons-material/DarkMode';
+import LightModeIcon from '@mui/icons-material/LightMode';
 
 export default function ThemeToggle() {
   const [isDark, setIsDark] = useState(false);
@@ -30,9 +32,20 @@ export default function ThemeToggle() {
   return (
     <button
       onClick={toggleTheme}
-      className=" px-4 py-2 bg-[var(--reversebackground)] text-[var(--background)] rounded"
+      className=" "
     >
-      {isDark ? 'Light Mode' : 'Dark Mode'}
+      {isDark ?
+        <LightModeIcon
+          style={{ color: 'var(--foreground)', }}
+          fontSize='large'
+          cursor='pointer'
+        /> :
+        <DarkModeIcon
+          style={{ color: 'var(--foreground)', }}
+          fontSize='large'
+          cursor='pointer'
+        />
+      }
     </button>
   );
 }

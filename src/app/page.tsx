@@ -17,7 +17,7 @@ export default async function BlogListPage() {
       <h1 className="text-7xl font-bold text-center mb-10">Tech Talk Hub</h1>
       <h2 className="text-3xl font-bold mb-6">Latest Tech Blogs</h2>
       {blogs && blogs.length > 0 ? (
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <div className="flex flex-col gap-6">
           {blogs.map((blog: Blog) => (
             <BlogCard key={blog.blog_slug} blog={blog} />
           ))}

@@ -7,23 +7,22 @@ import { Blog } from '@/types';
 export default function BlogCard({ blog }: { blog: Blog }) {
     return (
         <Link href={`/blog/${blog.blog_slug}`} className="group">
-            <div className="border rounded-xl overflow-hidden shadow hover:shadow-lg transition hover:opacity-70">
+            <div className="flex border rounded-xl overflow-hidden shadow hover:shadow-lg transition hover:opacity-90">
+
+                <div className="p-4 bg-[var(--subbackground)] basis-1/2">
+                    <h2 className="text-xl font-semibold mb-2">{blog.blog_title}</h2>
+                    <p className="text-sm text-gray-500 mb-2">{new Date(blog.createdAt).toLocaleDateString()}</p>
+                    <div className='inline' dangerouslySetInnerHTML={{ __html: blog.blog_content.slice(0, 160) + ' ... read more' }} />
+                </div>
+
                 <Image
                     src={blog.blog_image}
                     alt={blog.blog_title}
                     width={400}
-                    height={250}
-                    className="w-full h-48 object-cover group-hover:scale-105 transition-transform"
+                    height={300}
+                    className="w-full h-full max-h-64 object-cover group-hover:scale-105 transition-transform basis-1/2"
                     loading="lazy"
                 />
-                <div className="p-4 bg-[var(--subbackground)]">
-                    <h2 className="text-xl font-semibold mb-2">{blog.blog_title}</h2>
-                    <p className="text-sm text-gray-500 mb-2">{new Date(blog.createdAt).toLocaleDateString()}</p>
-                    <p className="line-clamp-2">{blog.blog_content}</p>
-                </div>
-                <div className="p-4 bg-[var(--reversebackground)] text-center">
-                    <span className="text-xl text-white">Read more</span>
-                </div>
             </div>
         </Link>
     );
